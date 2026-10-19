@@ -3,14 +3,14 @@ using UnityEngine;
 //<Summary> This script is used for the falling Pubbies in the loading screen. - Zander :3 <Summary>
 public class FallingPubbies : MonoBehaviour
 {
-    private float minX = -6f;
-    private float maxX = 6f;
+    private float minX = -5f;
+    private float maxX = 5f;
 
-    private float startingMinY = -8;
-    private float startingMaxY = 8;
+    private float startingMinY = -13;
+    private float startingMaxY = 14;
 
-    private float minY = 11;
-    private float maxY = 12;
+    private float minY = 15;
+    private float maxY = 16;
 
     private Rigidbody2D rb;
 

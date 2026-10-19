@@ -66,7 +66,7 @@ public class Spawner : MonoBehaviour
 
     public void SpawnObject(InputAction.CallbackContext context)
     {
-        if (context.performed && lastSpawnTime >= cooldown && canSpawn && !serviceHub.UIManager.isPaused)
+        if (context.canceled && lastSpawnTime >= cooldown && canSpawn && !serviceHub.UIManager.isPaused)
         {
             AudioClip randomBark = pubbyBarks[Random.Range(0, pubbyBarks.Length)];
             serviceHub.AudioManager.PlayBark(randomBark);
