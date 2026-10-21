@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenu;
 
     public bool isPaused;
+    public bool isResumed;
     public bool isGameOver; //Will make it so you can't paused after GameOver is triggered
 
     private void Start()
@@ -47,10 +49,9 @@ public class UIManager : MonoBehaviour
         if(context.started) TogglePause();
     }
 
+    //This method can be used for both ESC and a Resume Button, so not calling this method a button
     public void TogglePause()
     {
-        //This method can be used for both pausing and unpausing, so not calling this method a button
-
         if (!isGameOver)
         {
             isPaused = !isPaused; //Flips true or false
@@ -59,11 +60,20 @@ public class UIManager : MonoBehaviour
 
             if (!isPaused) Time.timeScale = 1; //not Paused
             else Time.timeScale = 0; //Paused
+
+            StartCoroutine(PreventAccidentalDrop());
         }
     }
 
     public void QuitGameButton()
     {
         Application.Quit();
+    }
+
+    IEnumerator PreventAccidentalDrop()
+    {
+        isResumed = true;
+        yield return new WaitForSeconds(.6f);
+        isResumed = false;
     }
 }

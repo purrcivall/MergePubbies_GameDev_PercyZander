@@ -16,18 +16,18 @@ public class GameManager : MonoBehaviour
         highScoreDisplay.text = $"Best: {highScore}";
     }
 
+    private void UpdateScore()
+    {
+        currentScoreDisplay.text = $"Score: {currentScore}";
+        highScoreDisplay.text = $"Best: {highScore}";
+        gameOverScoreDisplay.text = $"Score: {currentScore}";
+    }
+
     public void AddScore(int scoreToAdd)
     {
         currentScore += scoreToAdd;
         if (currentScore > highScore) highScore = currentScore;
 
         UpdateScore();
-    }
-
-    private void UpdateScore()
-    {
-        currentScoreDisplay.text = $"Score: {currentScore}";
-        highScoreDisplay.text = $"Best: {highScore}";
-        gameOverScoreDisplay.text = $"Score: {currentScore}";
     }
 }

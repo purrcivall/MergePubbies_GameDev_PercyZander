@@ -64,20 +64,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    public void SpawnObject(InputAction.CallbackContext context)
-    {
-        if (context.canceled && lastSpawnTime >= cooldown && canSpawn && !serviceHub.UIManager.isPaused)
-        {
-            AudioClip randomBark = pubbyBarks[Random.Range(0, pubbyBarks.Length)];
-            serviceHub.AudioManager.PlayBark(randomBark);
-
-            Instantiate(pubbyPrefab, transform.position, Quaternion.identity);
-            StartCoroutine(ChangeCurrentPubby());
-            Destroy(clone);
-        }
-    }
-
-    private IEnumerator ChangeCurrentPubby()
+    IEnumerator ChangeCurrentPubby()
     {
         yield return new WaitForSeconds(.01f);
         currentPubby = nextPubby;
@@ -107,6 +94,28 @@ public class Spawner : MonoBehaviour
             yield return new WaitForSeconds(.1f);
             lastSpawnTime += .1f;
             yield return null;
+        }
+    }
+
+    IEnumerator WaitThenSpawn()
+    {
+        yield return new WaitForSeconds(.05f);
+        if (lastSpawnTime >= cooldown && canSpawn && !serviceHub.UIManager.isPaused && !serviceHub.UIManager.isResumed)
+        {
+            AudioClip randomBark = pubbyBarks[Random.Range(0, pubbyBarks.Length)];
+            serviceHub.AudioManager.PlayBark(randomBark);
+
+            Instantiate(pubbyPrefab, transform.position, Quaternion.identity);
+            StartCoroutine(ChangeCurrentPubby());
+            Destroy(clone);
+        }
+    }
+
+    public void SpawnObject(InputAction.CallbackContext context)
+    {
+        if (context.canceled && lastSpawnTime >= cooldown && canSpawn && !serviceHub.UIManager.isPaused)
+        {
+            StartCoroutine(WaitThenSpawn());
         }
     }
 
