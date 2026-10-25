@@ -16,6 +16,7 @@ public class GameOverTrigger : MonoBehaviour
     public Image gameOverScreen;
     public GameObject scoreSign;
     public GameObject gameOverUI;
+    public GameObject pauseButton;
     public float fadeOutTime;
 
     private ServiceHub serviceHub;
@@ -26,6 +27,7 @@ public class GameOverTrigger : MonoBehaviour
         sr.enabled = false;
         isTriggerStay = false;
         serviceHub = ServiceHub.Instance;
+        pauseButton.SetActive(true);
 
         StartCoroutine(CheckTrigger());
     }
@@ -62,6 +64,7 @@ public class GameOverTrigger : MonoBehaviour
             if (currentCountDown >= maxCountDown)
             {
                 serviceHub.AudioManager.musicAudioSource.Stop();
+                pauseButton.SetActive(false);
                 StartCoroutine(FadeImage());
                 floor.SetActive(false);
                 Camera.main.GetComponent<Animator>().enabled = true;

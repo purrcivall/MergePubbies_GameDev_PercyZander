@@ -1991,6 +1991,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 1715534529}
   scoreSign: {fileID: 1003303007}
   gameOverUI: {fileID: 358047298}
+  pauseButton: {fileID: 1629565102}
   fadeOutTime: 0.1
 --- !u!1 &239417368
 GameObject:
@@ -12531,6 +12532,7 @@ MonoBehaviour:
   creditsMenu: {fileID: 0}
   pauseMenu: {fileID: 1478518968}
   isPaused: 0
+  isResumed: 0
   isGameOver: 0
 --- !u!4 &1820147198
 Transform:
