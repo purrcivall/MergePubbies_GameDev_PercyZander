@@ -1327,6 +1327,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 302134981}
+  - {fileID: 931529503}
   - {fileID: 576749098}
   - {fileID: 1632111310}
   - {fileID: 1820147198}
@@ -1351,6 +1352,7 @@ MonoBehaviour:
   gameManager: {fileID: 1632111309}
   uiManager: {fileID: 1820147197}
   audioManager: {fileID: 576749099}
+  saveManager: {fileID: 931529504}
 --- !u!1 &148435447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,8 +1831,8 @@ Transform:
   m_GameObject: {fileID: 234814779}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
-  m_LocalScale: {x: 9.421308, y: 0.721035, z: 1}
+  m_LocalPosition: {x: 0, y: 6.2218, z: 0}
+  m_LocalScale: {x: 9.421308, y: 0.27738217, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 302134981}
@@ -4297,6 +4299,8 @@ MonoBehaviour:
   - Pres- OMG SQUIRREL RUHRUHURHURHRUHRU
   - I buried a bone and can't find it :c
   - The Claw follows your Mouse
+  - The Game only saves if you press Quit!
+  - Try merging 3 identical Pubbies!
 --- !u!1 &766216418
 GameObject:
   m_ObjectHideFlags: 0
@@ -5565,6 +5569,50 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &931529502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 931529503}
+  - component: {fileID: 931529504}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &931529503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931529502}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 126483871}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &931529504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931529502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43481d532c9ddd84890f1b6289e1fe8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveManager
 --- !u!1 &942252157
 GameObject:
   m_ObjectHideFlags: 0

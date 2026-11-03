@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI highScoreDisplay;
     public TextMeshProUGUI gameOverScoreDisplay;
 
-    private void Start()
+    public void Start()
     {
         highScoreDisplay.text = $"Best: {highScore}";
     }
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         UpdateScore();
     }
 
-    private void UpdateScore()
+    public void UpdateScore()
     {
         currentScoreDisplay.text = $"Score: {currentScore}";
         highScoreDisplay.text = $"Best: {highScore}";

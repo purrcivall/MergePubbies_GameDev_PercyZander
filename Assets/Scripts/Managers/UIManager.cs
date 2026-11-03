@@ -12,15 +12,20 @@ public class UIManager : MonoBehaviour
     public bool isPaused;
     public bool isGameOver; //Will make it so you can't paused after GameOver is triggered
 
+    private ServiceHub serviceHub;
+
     private void Start()
     {
         isPaused = false;
         isGameOver = false;
         Time.timeScale = 1;
+
+        serviceHub = ServiceHub.Instance;
     }
 
     public void ChangeSceneButton(int sceneValue)
     {
+        serviceHub.SaveManager.Save(); //Save the game when changing scenes
         SceneManager.LoadScene(sceneValue); //sceneValue is handled within the Unity Editor
     }
 
@@ -64,6 +69,14 @@ public class UIManager : MonoBehaviour
 
     public void QuitGameButton()
     {
+        serviceHub.SaveManager.Save();
         Application.Quit();
+    }
+
+    public void DeleteDataButton()
+    {
+        GameManager.highScore = 0;
+        serviceHub.GameManager.UpdateScore();
+        serviceHub.SaveManager.Save();
     }
 }
