@@ -92,7 +92,7 @@ public class MergeLogic : MonoBehaviour
 
     IEnumerator ExpandRadius()
     {
-        var shape = greenAura.shape;
+        ParticleSystem.ShapeModule shape = greenAura.shape;
         while (isEvilPubby)
         {
             yield return new WaitForSeconds(expandSpeed);

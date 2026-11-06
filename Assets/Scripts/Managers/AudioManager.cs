@@ -13,6 +13,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip introludeAudioClip;
     public AudioClip gameplayAudioClip;
 
+    public AudioClip[] percyBarks;
+    public AudioClip[] zanderBarks;
+
     public Slider musicSlider;
     public Slider pubbieBarkSlider;
     public Slider sfxSlider;
@@ -78,5 +81,19 @@ public class AudioManager : MonoBehaviour
     {
         musicAudioSource.clip = gameOverAudioClip;
         musicAudioSource.Play();
+    }
+
+    public void PlayCreditsBark(int whichPubby)
+    {
+        if(whichPubby == 0)
+        {
+            pubbieBarkAudioSource.clip = percyBarks[Random.Range(0, percyBarks.Length)];
+            pubbieBarkAudioSource.Play();
+        }
+        else
+        {
+            pubbieBarkAudioSource.clip = zanderBarks[Random.Range(0, zanderBarks.Length)];
+            pubbieBarkAudioSource.Play();
+        }
     }
 }
